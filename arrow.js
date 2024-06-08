@@ -33,3 +33,22 @@ var getNumber = function (data) {
   };
 };
 console.log(getNumber("uncheck"));
+
+//* Using arrow functions to create IIEF!
+
+var fn1 = (function (number) {
+  return {
+    getNumber: function () {
+      return number;
+    },
+  };
+})(44);
+console.log(fn1.getNumber());
+
+var fn2 = (function printName(name) {
+  return function getName() {
+    return name;
+  };
+})("Anusha");
+
+console.log(fn2());
