@@ -118,29 +118,39 @@
 // jim.getDetails()();
 
 //* now replacing inner function with arrow function
-function Employee(name, dept, salary) {
-  this.name = name;
-  this.dept = dept;
-  this.salary = salary;
+// function Employee(name, dept, salary) {
+//   this.name = name;
+//   this.dept = dept;
+//   this.salary = salary;
 
-  //* both works fine!
-  this.getDetails = function () {
-    return () => {
-      console.log("Hello", this.name, "from", this.dept, "earns", this.salary);
-    };
-  };
+//* both works fine!
+//   this.getDetails = function () {
+//     return () => {
+//       console.log("Hello", this.name, "from", this.dept, "earns", this.salary);
+//     };
+//   };
 
-  this.getDetails2 = () => {
-    console.log(this);
-  };
-}
+//   this.getDetails2 = () => {
+//     console.log(this);
+//   };
+// }
 
-let jim = new Employee("Jim", "Sales", "$250000");
-jim.getDetails()();
-jim.getDetails2();
+// let jim = new Employee("Jim", "Sales", "$250000");
+// jim.getDetails()();
+// jim.getDetails2();
 
-let mark = new Employee();
-mark.getDetails2();
+// let mark = new Employee();
+// mark.getDetails2();
 
-let context = mark.getDetails2;
-context();
+// let context = mark.getDetails2;
+// context();
+let details = {
+  number: 12,
+  operation: function () {
+    return () => console.log(this.number);
+  },
+};
+
+let details2 = {
+  number: 22,
+};
