@@ -154,3 +154,5 @@ let details = {
 let details2 = {
   number: 22,
 };
+
+details.operation().bind(details2)();
