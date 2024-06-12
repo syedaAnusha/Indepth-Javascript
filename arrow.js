@@ -181,12 +181,23 @@
 // let b = new a(); //! will give error here!
 
 //* arrow functions donot have prototype field
-let details = () => 42;
+// let details = () => 42;
 
-console.log(details.hasOwnProperty("prototype")); //* false
+// console.log(details.hasOwnProperty("prototype")); //* false
 
-let details2 = function () {
-  console.log(42);
-};
+// let details2 = function () {
+//   console.log(42);
+// };
 
-console.log(details2.hasOwnProperty("prototype")); //* true
+// console.log(details2.hasOwnProperty("prototype")); //* true
+
+//* cannot have duplicate named parameters in either mode
+
+// let a = (x, x) => x * x;
+// console.log(a(2, 3)); //! will give error
+
+// function displayName(val, val) {
+//   console.log(val, val);
+// }
+
+// displayName("hello", "bye"); //* bye bye
