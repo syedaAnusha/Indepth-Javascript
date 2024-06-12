@@ -55,7 +55,7 @@
 
 //* Tale about "this"
 
-//* Function Invocation
+//* 1- Function Invocation
 // function taleAboutThis() {
 //   console.log(this);
 // }
@@ -64,22 +64,37 @@
 //   console.log("this refers to the Global Context!");
 // }
 
-//* Metjod Invocation
-let obj = {
-  name: "fancy",
-  operation: function () {
-    console.log(this);
-  },
-};
+//* 2- Metjod Invocation
+// let obj = {
+//   name: "fancy",
+//   operation: function () {
+//     console.log(this);
+//   },
+// };
 
-let obj2 = {
-  name: "Fairy",
-};
+// let obj2 = {
+//   name: "Fairy",
+// };
 
 // obj.operation(); //* method invocation
 
 // let x = obj.operation;
 // x(); //* function invocation
 
-let operation = obj.operation;
-operation.call(obj2);
+// let operation = obj.operation;
+// operation.call(obj2);
+
+//* 3- Constructor Invocation
+
+//* Constructor Function!
+function Employee(name, age) {
+  this.name = name;
+  this.age = age;
+
+  console.log("Welcome", this.name, "!");
+}
+
+let Employee1 = new Employee("Syeda Anuhsa", 23);
+
+//* here new Employee is Constructor Invocation!
+Employee1;
