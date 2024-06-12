@@ -164,11 +164,29 @@
 // result();
 
 //* but can use apply,call & bind with arrow functions
-let product = (x, y) => x * y;
+// let product = (x, y) => x * y;
 
-console.log(product.call(null, 2, 3));
-console.log(product.call(null, [2, 3])); //* NaN
-console.log(product.apply(null, [2, 3]));
+// console.log(product.call(null, 2, 3));
+// console.log(product.call(null, [2, 3])); //* NaN
+// console.log(product.apply(null, [2, 3]));
 
-let multiply = product.bind(null, 2, 3);
-console.log(multiply());
+// let multiply = product.bind(null, 2, 3);
+// console.log(multiply());
+
+//* we cannot use "new" with arrow functions
+// let a = () => {
+//   console.log("hello, i am A!");
+// };
+
+// let b = new a(); //! will give error here!
+
+//* arrow functions donot have prototype field
+let details = () => 42;
+
+console.log(details.hasOwnProperty("prototype")); //* false
+
+let details2 = function () {
+  console.log(42);
+};
+
+console.log(details2.hasOwnProperty("prototype")); //* true
