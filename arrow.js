@@ -1,5 +1,6 @@
 //* This file is only to learn & practise arrow functions
 
+// "use strict";
 //* one line statement without "return" & atleast 1 parameter
 // var printName = (name) => name;
 // console.log(printName("Hey, I am peter!"));
@@ -87,14 +88,59 @@
 //* 3- Constructor Invocation
 
 //* Constructor Function!
-function Employee(name, age) {
-  this.name = name;
-  this.age = age;
+// function Employee(name, age) {
+//   this.name = name;
+//   this.age = age;
 
-  console.log("Welcome", this.name, "!");
-}
+//   console.log("Welcome", this.name, "!");
+// }
 
-let Employee1 = new Employee("Syeda Anuhsa", 23);
+// let Employee1 = new Employee("Syeda Anuhsa", 23);
 
 //* here new Employee is Constructor Invocation!
-Employee1;
+// Employee1;
+
+//* this in Arrow Functions
+
+// function Employee(name, dept, salary) {
+//   this.name = name;
+//   this.dept = dept;
+//   this.salary = salary;
+
+//   this.getDetails = function () {
+//     return function () {
+//       console.log("Hello", this.name, "from", this.dept, "earns", this.salary);
+//     };
+//   };
+// }
+
+// let jim = new Employee("Jim", "Sales", "$250000");
+// jim.getDetails()();
+
+//* now replacing inner function with arrow function
+function Employee(name, dept, salary) {
+  this.name = name;
+  this.dept = dept;
+  this.salary = salary;
+
+  //* both works fine!
+  this.getDetails = function () {
+    return () => {
+      console.log("Hello", this.name, "from", this.dept, "earns", this.salary);
+    };
+  };
+
+  this.getDetails2 = () => {
+    console.log(this);
+  };
+}
+
+let jim = new Employee("Jim", "Sales", "$250000");
+jim.getDetails()();
+jim.getDetails2();
+
+let mark = new Employee();
+mark.getDetails2();
+
+let context = mark.getDetails2;
+context();
