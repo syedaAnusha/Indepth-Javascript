@@ -144,15 +144,31 @@
 
 // let context = mark.getDetails2;
 // context();
-let details = {
-  number: 12,
-  operation: function () {
-    return () => console.log(this.number);
-  },
-};
 
-let details2 = {
-  number: 22,
-};
+//* Cannot use bind, call & apply with arrow functions
+// let details = {
+//   number: 12,
+//   operation: function () {
+//     return () => console.log(this.number);
+//   },
+// };
 
-details.operation().bind(details2)();
+// let details2 = {
+//   number: 22,
+// };
+
+// details.operation().bind(details2)();
+// details.operation.bind(details2)(); //* print nothing on console
+
+// let result = details.operation.bind(details2);
+// result();
+
+//* but can use apply,call & bind with arrow functions
+let product = (x, y) => x * y;
+
+console.log(product.call(null, 2, 3));
+console.log(product.call(null, [2, 3])); //* NaN
+console.log(product.apply(null, [2, 3]));
+
+let multiply = product.bind(null, 2, 3);
+console.log(multiply());
