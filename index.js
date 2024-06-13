@@ -829,3 +829,11 @@
 //   }
 // }
 // delay();
+
+// //* Functions are Objects!
+// function bark() {
+//   console.log("whoof!");
+// }
+
+// bark.animal = "dog";
+// console.log(bark.animal);
