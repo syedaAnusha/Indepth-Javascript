@@ -1,4 +1,4 @@
-//* This file is only to learn & practise arrow functions
+//? This file is only to learn & practise arrow functions
 
 // "use strict";
 //* one line statement without "return" & atleast 1 parameter
