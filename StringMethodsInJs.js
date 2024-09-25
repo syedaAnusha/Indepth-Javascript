@@ -8,8 +8,16 @@ const str = "Hello World";
 const programmingLanguage = "JavaScript";
 
 //* Question 1: How do you find the length of a string in JavaScript?
-const Str_Length = str.length;
-console.log(`Length of '${str}' --> ${Str_Length}`);
+
+//? Improved Question 01
+
+function findLengthOfString(text) {
+  typeof text === "string"
+    ? console.log(`Length of '${text}' --> ${text.length}`)
+    : console.log(`Please Provide Valid Input String!`);
+}
+findLengthOfString(str);
+findLengthOfString(1);
 
 //* Question 2: Write a function to convert the string "hello world" to uppercase using a JavaScript string method?
 const Str_In_UpperCase = str.toUpperCase();
