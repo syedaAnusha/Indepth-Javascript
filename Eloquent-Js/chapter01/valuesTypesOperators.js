@@ -56,6 +56,7 @@ console.log(`false || "user" :`, false || "user");
 console.log(`NaN || "user" :`, NaN || "user");
 console.log(`null || "user" :`, null || "user");
 console.log(`undefined || "user" :`, undefined || "user");
+console.log(`"" || "user" :`, "" || "user");
 
 //* 2- && Operator
 
@@ -66,6 +67,7 @@ console.log(`false && "user" : `, false && "user");
 console.log(`NaN && "user" : `, NaN && "user");
 console.log(`null && "user" :`, null && "user");
 console.log(`undefined && "user" :`, undefined && "user");
+console.log(`"" && "user" :`, "" && "user");
 console.log(`[] && "user" :`, [] && "user");
 
 console.log(`user || null :`, "user" || null); // "user"
