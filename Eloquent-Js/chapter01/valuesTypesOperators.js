@@ -67,3 +67,13 @@ console.log(`NaN && "user" : `, NaN && "user");
 console.log(`null && "user" :`, null && "user");
 console.log(`undefined && "user" :`, undefined && "user");
 console.log(`[] && "user" :`, [] && "user");
+
+console.log(`user || null :`, "user" || null); // "user"
+console.log(`null || user :`, null || "user"); // "user"
+console.log(`user && null :`, "user" && null); // null
+console.log(`null && user :`, null && "user"); // null
+
+console.log(`user || undefined :`, "user" || undefined); // "user"
+console.log(`undefined || user :`, undefined || "user"); // "user"
+console.log(`user && undefined :`, "user" && undefined); // null
+console.log(`undefined && user :`, undefined && "user"); // null
