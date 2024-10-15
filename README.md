@@ -39,3 +39,12 @@
 * Here, it does not create the copy of Array(4), results in changing` matrix2[0][0] = "@"`, will changes all the `matrix2[rows][0]`. **(Not Recommended)** ❌
 
   - `const matrix3 = new Array(4).fill(new Array(6).fill("#"))`;
+
+<br>
+
+# Chapter03 : Functions
+
+<br>
+
+1. If you pass too many `args`, the extra ones are **ignored**. If you pass too few, the missing parameters get assigned the value **undefined**
+2. A function that references bindings from local scopes around it is called a **closure**.
