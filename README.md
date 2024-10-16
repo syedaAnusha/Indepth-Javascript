@@ -48,3 +48,46 @@
 
 1. If you pass too many `args`, the extra ones are **ignored**. If you pass too few, the missing parameters get assigned the value **undefined**
 2. A function that references bindings from local scopes around it is called a **closure**.
+
+<br>
+
+# Chapter03 : Functions
+
+<br>
+
+1. null.length; --> //TypeError: null has no properties
+2. The two main ways to access properties in JavaScript are with a dot and with square brackets.
+3. Both **value.x** and **value[x]** access a property on value but not necessarily the same property
+4. When using a dot, the word after the dot is the **literal name** of the property
+5. When using square brackets, the expression between the brackets is evaluated to get the property name
+6. **Properties that contain functions** are generally called **methods** of the value they belong to, as in “toUpperCase is a method of a string”
+7. Braces have two meanings in JavaScript.
+
+- At the start of a statement, they start a block of statements.
+- In any other position, they describe an object.
+
+8. Reading a **property** that doesn’t exist will give you the value **undefined**
+9. The `delete` operator is a unary operator that, when applied to an object property, will remove the named property from the object
+10. The binary `in` operator, when applied to a string and an object, tells you whether that object has a property with that name.
+11. To find out what properties an object has, you can use the `Object.keys` function.
+12. There’s an `Object.assign` function that copies all properties from one object into another.
+13. Arrays, then, are just a kind of object specialized for storing sequences of things.
+14. Objects work differently. You can change their properties, causing a single object value to have different content at different times
+15. if a property name in brace notation isn’t followed by a value, its value is taken from the binding with the same name.
+16. Arrays have an `includes` method that checks whether a given value exists in the array.
+17. `for of` : This works not only for arrays but also for strings and some other data structures.
+18. `lastIndexOf` is case-sensitive, searches the string from the end to the beginning, returns -1 if the value is not found.
+19. `slice`, which takes **start** and **end indices** and returns an **array** that has only the elements between them. The start index is **inclusive**, the end index is **exclusive**.
+20. If you pass concat an argument that is not an array, that value will be added to the new array as if it were a one-element array.
+21. The code `arr.slice(-2, -7)` prints an empty array because the `slice` method doesn't work when the **starting index** is **greater** than the **ending index**.
+22. `slice` method always go from **left** to **right**.
+23. `let kim = "Kim";`
+    `kim.age = 88;`
+    `console.log(kim.age);` // → undefined
+
+- Values of type string, number, and Boolean are not objects, and though the language doesn’t complain if you try to set new properties on them, it doesn’t actually store those properties. Such values are immutable and cannot be changed
+
+24. One difference is that a string’s indexOf can search for a string containing more than one character, whereas the corresponding array method looks only for a single element.
+25. `indexOf`: is `case-sensitive` either used with **strings** or **Arrays**.
+26. The `trim` method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string.
+27. `padStart` that takes the desired length and padding character as arguments
