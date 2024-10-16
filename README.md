@@ -51,7 +51,7 @@
 
 <br>
 
-# Chapter03 : Functions
+# Chapter04 : Array and Objects
 
 <br>
 
