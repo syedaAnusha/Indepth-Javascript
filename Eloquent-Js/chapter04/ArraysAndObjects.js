@@ -54,7 +54,67 @@ const fruitInArray = ["A", "P", "P", "L", "E"];
 console.log(fruit.indexOf("A")); //* case sensitive
 console.log(fruitInArray.indexOf("a")); //* case sensitive
 
-//* String Method - padStart
+//* 7- String Method - padStart
 let letter = "ABC";
 console.log(letter.padStart(26, "DEFGHIJKLMNOPQRSTUVWXYZ"));
 console.log(letter.padEnd(26, "DEFGHIJKLMNOPQRSTUVWXYZ"));
+
+//* 8- Rest Operator
+const words = ["Hello", "World"];
+const newWords = [...words, "I", "am", "Here"];
+console.log([...newWords, "I", "am", "another", "array"]);
+
+//* 9- JSON
+const data = { squirrel: false, events: ["weekend"] };
+const stringifyData = JSON.stringify(data);
+console.log("Stringify :", stringifyData);
+console.log("Parse :", JSON.parse(stringifyData));
+
+//* Excercises from Book
+
+//* Sum of Range
+function range(start, end, step) {
+  let range = [];
+  if (step > 0) {
+    for (let i = start; i <= end; i += step) {
+      range.push(i);
+    }
+    return range;
+  } else if (step < 0 && start > end) {
+    for (let i = start; i >= end; i += step) {
+      range.push(i);
+    }
+    return range;
+  } else {
+    for (let i = start; i <= end; i++) {
+      range.push(i);
+    }
+    return range;
+  }
+}
+
+console.log("Range", range(5, 2, -1));
+function sum(arr) {
+  let sum = 0;
+  arr.forEach((number) => {
+    sum = number + sum;
+  });
+  return sum;
+}
+console.log("Sum", sum(range(1, 10, 2)));
+
+//* Reversing An Array
+let originalArray = [1, 5, 7, 3, 9];
+function reverseArray(arr) {
+  let revArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    revArray.unshift(arr[i]);
+  }
+  return revArray;
+}
+console.log("Reverse Array", reverseArray(originalArray));
+
+function reverseArrayInPlace(arr) {
+  return reverseArray(arr.sort());
+}
+console.log("Reverse Array In Place", reverseArrayInPlace(originalArray));

@@ -63,8 +63,8 @@
 6. **Properties that contain functions** are generally called **methods** of the value they belong to, as in “toUpperCase is a method of a string”
 7. Braces have two meanings in JavaScript.
 
-- At the start of a statement, they start a block of statements.
-- In any other position, they describe an object.
+   - At the start of a statement, they start a block of statements.
+   - In any other position, they describe an object.
 
 8. Reading a **property** that doesn’t exist will give you the value **undefined**
 9. The `delete` operator is a unary operator that, when applied to an object property, will remove the named property from the object
@@ -85,9 +85,32 @@
     `kim.age = 88;`
     `console.log(kim.age);` // → undefined
 
-- Values of type string, number, and Boolean are not objects, and though the language doesn’t complain if you try to set new properties on them, it doesn’t actually store those properties. Such values are immutable and cannot be changed
+    - Values of type string, number, and Boolean are not objects, and though the language doesn’t complain if you try to set new properties on them, it doesn’t actually store those properties. Such values are immutable and cannot be changed
 
 24. One difference is that a string’s indexOf can search for a string containing more than one character, whereas the corresponding array method looks only for a single element.
 25. `indexOf`: is `case-sensitive` either used with **strings** or **Arrays**.
 26. The `trim` method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string.
-27. `padStart` that takes the desired length and padding character as arguments
+27. `padStart` that takes the desired length and padding character as arguments.
+28. here is only one Math object, and it is almost never useful as a value. Rather, it provides a namespace so that all these functions and values do not have to be global bindings
+29. For random numbers, the machine keeps some hidden value, and whenever you ask for a new random number, it performs complicated computations on this hidden value to create a new value. It stores a new value and returns some number derived from it. That way, it can produce ever new, hard-to-predict numbers in a way that seems random.
+30. `Serialize` the data. That means it is converted into a flat description. A popular serialization format is called **JSON (pronounced “Jason”)**, which stands for **JavaScript Object Notation**. It is widely used as a data storage and communication format on the Web, even in languages other than JavaScript.
+31. JSON looks similar to JavaScript’s way of writing arrays and objects, with a few restrictions.
+
+    - All property names have to be surrounded by double quotes.
+    - Only simple data expressions are allowed, no function calls, bindings, or anything that involves actual computation.
+    - Comments are not allowed in JSON
+
+32. JavaScript gives us the functions `JSON.stringify` and `JSON.parse` to convert data to and from this format.
+
+    - `JSON.stringify` takes a JavaScript value and returns a JSON-encoded string.
+    - `JSON.parse` The second takes such a string and converts it to the value it encodes.
+
+33. Below are the list of loops that iterates over an Array.
+    - `for each`
+    - `for of`
+    - `for in`
+    - `for`
+    - `reduce`
+    - `map`
+    - `filter`
+    - `while`
