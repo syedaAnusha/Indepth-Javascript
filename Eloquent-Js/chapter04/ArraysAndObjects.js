@@ -163,7 +163,7 @@ function ArrayToListWithRecursion(index, arr) {
   }
   return list;
 }
-const newList = ArrayToListWithRecursion(0, dummyArray);
+// const newList = ArrayToListWithRecursion(0, dummyArray);
 // console.log("ArrayToList", newList);
 
 //* List To Array
@@ -187,11 +187,10 @@ function prepend(element, list) {
   return newList;
 }
 
-const prependList = prepend(20, list);
+// const prependList = prepend(20, list);
 
 function findElement(index, list) {
   let arr = listToArray(list);
-  console.log(arr);
   let element = arr.find((ele) => {
     if (ele === arr[index]) return ele;
     else {
@@ -201,14 +200,19 @@ function findElement(index, list) {
   return element;
 }
 
-// console.log(findElement(4, prependList));
+// console.log(findElement(2, prependList));
 
 let element = null;
 let i = 0;
 function findElementRecursively(index, list) {
   if (list.rest === null) {
-    element = list.value;
-    return element;
+    if (i === index) {
+      element = list.value;
+      return element;
+    } else {
+      element = undefined;
+      return element;
+    }
   } else {
     if (i === index) {
       element = list.value;
@@ -219,4 +223,56 @@ function findElementRecursively(index, list) {
   }
   return element;
 }
-console.log(findElementRecursively(4, prependList));
+// console.log(findElementRecursively(0, prependList));
+
+//* Deep comparison
+const pet = {
+  name: "Cat",
+  sound: "meow",
+};
+
+const wild = {
+  name: "Lion",
+  sound: "roar",
+};
+let index = 0;
+let flag = null;
+
+function deepEqual(value1, value2) {
+  if (typeof value1 == "object" && typeof value2 == "object") {
+    if (Object.keys(value1).length === Object.keys(value2).length) {
+      deepEqual(Object.keys(value1)[index], Object.keys(value2)[index]);
+    } else {
+      flag = false;
+      return flag;
+    }
+  } else {
+    if (value1 === value2) {
+      flag = true;
+      if (
+        Object.keys(value1).length === index + 1 &&
+        Object.keys(value2).length === index + 1
+      ) {
+        return;
+      } else {
+        index++;
+      }
+    } else {
+      flag = false;
+      if (
+        Object.keys(value1).length === index + 1 &&
+        Object.keys(value2).length === index + 1
+      ) {
+        return;
+      } else {
+        index++;
+      }
+    }
+  }
+  if (typeof value1 == "object" && typeof value2 == "object") {
+    deepEqual(Object.keys(value1)[index], Object.keys(value2)[index]);
+  }
+  return flag;
+}
+
+console.log(deepEqual(pet, wild));
