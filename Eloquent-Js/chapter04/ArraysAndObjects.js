@@ -331,11 +331,11 @@ function removeFirstNumber(num, arr) {
 //* 6- Question: Create an object book with properties title, author, and year.
 //* Then, write a code snippet to add a new property called publisher to this object.
 
-// const book = {
-//   title: "Harry Potter",
-//   author: "JK Rowling",
-//   year: 2000,
-// };
+const book = {
+  title: "Harry Potter",
+  author: "JK Rowling",
+  year: 2000,
+};
 
 //* I - Using dot notation (.)
 // book.publisher = "RT publishers";
@@ -359,6 +359,7 @@ function removeFirstNumber(num, arr) {
 //   ...book,
 //   ["genere"]: "Fictional",
 //   characters: "Harry Potter, Dolby",
+//   year: 2005,
 // });
 
 //* 7- Given the array users = [{ name: "Alice", age: 25 }, { name: "Bob", age: 30 }],
@@ -395,10 +396,214 @@ function sumNumbers(...numbers) {
 
 // console.log(sumNumbers(3, 4, 5, 6, 7, 9, ...arr1));
 
+//* REST & SPREAD OPERATOR
+
+//* REST
+
+function myBio(firstname, lastname, company) {
+  return `${firstname} ${lastname} runs ${company}`;
+}
+
+const bio_data = ["Anusha", "Syeda", "Jupiter"];
+let bio = myBio(...bio_data);
+// console.log(bio);
+
+//* Destructuring with rest - array
+const [firstname, ...otherInfo] = bio_data;
+// console.log(firstname);
+// console.log(otherInfo);
+
+//* Destructuring with rest - object
+const personal_data = {
+  firstName: "Oluwatobi",
+  lastName: "Sofela",
+  companyName: "CodeSweetly",
+  profession: "Web Developer",
+  gender: "Male",
+};
+
+const { companyName, profession, ...otherdata } = personal_data;
+// console.log(otherdata);
+
 function printNames(first, last, ...others) {
   console.log(first);
   console.log(last);
   console.log(others);
 }
 
-printNames("Alice", "Bob", "Charlie", "David", "Alizabeth");
+// printNames("Alice", "Bob", "Charlie", "David", "Alizabeth");
+
+//* Spread
+//* 1- How Spread Works in an Array Literal
+const myName = ["Anusha", "is", "my"];
+const aboutMe = ["Syeda", ...myName, "name"]; //* here change in myName will not be reflected in aboutMe
+// console.log(aboutMe);
+
+//* 2- How to Use Spread to Convert a String into Individual Array Items
+const myStr = "Anusha";
+// console.log([...myStr]);
+
+//* 3- How the Spread Operator Works in a Function Call
+const numbers = [1, 3, 4, 6, 8];
+function addNumbers(a, b, c) {
+  return a + b + c;
+}
+// console.log(addNumbers(...numbers));
+
+const myFirstName = "Anusha Syeda";
+
+function spellName(a, b, c) {
+  return a + b + c;
+}
+
+// console.log(spellName(...myFirstName));
+// console.log(spellName([...myFirstName]));
+// console.log(spellName(...myFirstName[3]));
+// console.log(spellName({ ...myFirstName }));
+
+//* 4- How Spread Works in an Object Literal
+const names = ["Aliza", "Peter", "John"];
+const newBio = { ...names, runs: "codesweetly.com" };
+// console.log(newBio);
+//* 5- The spread operator does not clone identical properties
+let newName = { firstname: "peter", lastname: "john" };
+let myNewBio = { ...newName, firstname: "alizabeth" };
+// console.log(myNewBio);
+
+//* 6- What if myName contains non-primitive items?
+newName = [["Aliza", "Peter", "Johnss"]];
+let aboutOnlyMe = ["alizabeth", ...newName, "name"];
+// console.log(aboutOnlyMe);
+
+//? You do shallow copy when you create references while cloning one object into another.
+//? For instance, ...myName produces a shallow copy of the myName object
+//? because whatever alteration you make in one will reflect in the other.
+
+const MyName = {
+  fullname: { firstname: "Peter", lastName: "John" },
+};
+
+const BioData = { ...MyName }; //* Deep Object, Shallow copy
+
+// MyName.fullname.lastName = "Slack";
+// console.log(BioData);
+
+//? You do deep copy when you clone objects without creating references.
+//? For instance, I could deep copy myName into bio by doing
+//? const bio = JSON.parse(JSON.stringify(myName)).
+//? By doing so, the computer will clone myName into bio without creating any reference.
+
+const newBioData = JSON.parse(JSON.stringify(MyName));
+// MyName.fullname.lastName = "Slack";
+// console.log(newBioData);
+
+//? You can break off the reference between the two objects by replacing the fullName object
+//? inside myName or bio with a new object. For instance, doing
+//? myName.fullName = { firstName: "Tobi", lastName: "Sofela" }
+//? would disconnect the pointer between myName and bio.
+
+MyName.fullname = { firstname: "Tobi", lastName: "Sofela" };
+// console.log(MyName);
+// console.log(BioData);
+
+//* Hard - Final
+
+//* 1- Write a function mergeObjects that accepts any number of objects as arguments and
+//* returns a new object that combines all the properties of the input objects.
+//* If a property key exists in more than one object, the latest value should
+//* overwrite the previous ones.
+
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 3, c: 4 };
+const object3 = { a: 5, d: 6 };
+function mergeObjects(...objects) {
+  let newObject = {};
+  for (const element of objects) {
+    // newObject = { ...newObject, ...element }; //1-way
+    Object.assign(newObject, element); //2nd -way
+  }
+  console.log(newObject);
+}
+// mergeObjects(object1, object2, object3);
+
+//* 2- Create a function flattenAndFilter that takes an array of arrays as input,
+//* flattens it using the spread operator, and then filters out any
+//* values that are null, undefined, or false.
+
+let arrayOfArrays = [
+  [1, 2, null],
+  [3, false, 4],
+  [undefined, 5],
+];
+function flattenAndFilter(array) {
+  let newArray = [];
+  for (const ele of array) {
+    newArray = [...newArray, ...ele];
+  }
+  const output = newArray.filter((num) => {
+    if (typeof num === "number") return num;
+  });
+  console.log(output);
+}
+// flattenAndFilter(arrayOfArrays);
+
+//* 3- Write a function getMaxPropertyValues that takes an array of objects
+//* and a property name as arguments, then returns the object that has the
+//* highest value for the given property. Use the spread operator to pass
+//* the values to Math.max().
+
+let players = [
+  { name: "Alice", score: 80 },
+  { name: "Bob", score: 95 },
+  { name: "Charlie", score: 70 },
+];
+
+function getMaxPropertyValues(object, property) {
+  let scores = object.map((obj) => obj[property]);
+  let maxNum = Math.max(...scores);
+  let playerWithHighestScore = object.filter((player) => {
+    if (player.score === maxNum) return player;
+  });
+  console.log(...playerWithHighestScore);
+}
+// getMaxPropertyValues(players, "score");
+
+//* 4- Using the rest operator, write a function sumProperties that accepts multiple
+//* objects and a property name. The function should return the sum of the values
+//* for that property across all the objects.
+
+let products = [
+  { product: "A", price: 50 },
+  { product: "B", price: 30 },
+  { product: "C", price: 20 },
+];
+
+function sumProperties(property, ...object) {
+  let prices = object.map((obj) => obj[property]);
+  let sumOFAllPrices = 0;
+  prices.forEach((p) => {
+    sumOFAllPrices += p;
+  });
+
+  console.log(sumOFAllPrices);
+}
+
+// sumProperties(
+//   "price",
+//   { product: "A", price: 50 },
+//   { product: "B", price: 30 },
+//   { product: "C", price: 20 }
+// );
+
+//* 5- Write a function combineArraysAndObjects that takes an arbitrary number
+//* of arrays and objects as arguments. The function should return a single object
+//* where the keys are the indices of the arrays (flattened into a single array)
+//* and the values are the corresponding objects. If no object is provided for a
+//* particular index, assign the value as null.
+
+function combineArraysAndObjects(...params) {
+  let obj = [].concat(...params);
+  console.log({ ...obj });
+}
+
+// combineArraysAndObjects([1, 2], [3, 4], { a: 5 }, { b: 6 });

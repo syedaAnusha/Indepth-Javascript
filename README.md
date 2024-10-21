@@ -124,4 +124,15 @@
     - we can name the property variable with identifiers (say all digits, having spaces, special characters).
     - In case of dynamic variables where property names are retrieved from user inputs or API calls
 36. In `Object.assign()`, the properties inside the target object will be **overwritten** by the source object’s properties if the **same key name** is found in **both** the objects.
-37. In `spread Operator`, it merges two objects to form a new one, **does not** overwrite existing properties of the object if **common keys** are found in **both** source and target objects.
+37. In `spread Operator`, it merges two objects to form a new one, **does** overwrite existing properties of the object if **common keys** are found in **both** source and target objects.
+38. `spread operator` will not create any reference between the original array and the duplicated one (**primitive case**) or **shallow copy**.
+39. We call **myName** a `deep object` `shallow copy` because it contains a non-primitive items.
+    - e.g `let newName = [["Aliza", "Peter", "Johnss"]];`
+    - which means changing in newName, will also be reflected in other variable (which contains _newName_)
+40. We call **myName** a `shallow object` `deep copy` because it contains a primitive items
+    - e.g `let newName = ["Aliza", "Peter", "Johnss"];`
+    - which means changing in newName, will not be reflected in other variable (which contains _newName_).
+41. Below are 2 ways for **Deep Copy**
+    - `const bio = JSON.parse(JSON.stringify(myName));`
+    - `myName.fullName = { firstName: "Tobi", lastName: "Sofela" }` or
+    - `bio.fullName = { firstName: "Tobi", lastName: "Sofela" }`
