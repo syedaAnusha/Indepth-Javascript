@@ -174,3 +174,8 @@
     - `findIndex()` - Returns the index of the first element that satisfies a test function.
     - `some()` - Checks if at least one element in the array passes a test.
     - `every()` - Checks if all elements in the array pass a test.
+45. Array Methods ES2023
+    - `toSpliced()` : The difference between the new toSpliced() method and the old splice() method is,
+      - the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
+46. `with()` method as a safe way to update elements in an array without altering the original array.
+47. `of()` static method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
