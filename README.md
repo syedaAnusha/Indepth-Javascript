@@ -110,9 +110,6 @@
     - `for of`
     - `for in`
     - `for`
-    - `reduce`
-    - `map`
-    - `filter`
     - `while`
 34. There are 5 ways, we can assign new property and value to object.
     - Using dot notation (.)
@@ -136,3 +133,44 @@
     - `const bio = JSON.parse(JSON.stringify(myName));`
     - `myName.fullName = { firstName: "Tobi", lastName: "Sofela" }` or
     - `bio.fullName = { firstName: "Tobi", lastName: "Sofela" }`
+42. Mutator Methods (Modify the array itself):
+    - `push()` : Adds one or more elements to the end of an array and returns the new length.
+    - `pop()` : Removes the last element from an array and returns that element.
+    - `shift()` : Removes the first element from an array and returns that element.
+    - `unshift()`: Adds one or more elements to the beginning of an array and returns the new length.
+    - `splice()` : Adds/removes elements from an array at a specific index.
+    - `sort()` : Sorts the elements of an array in place and returns the sorted array.
+    - `reverse()`: Reverses the elements of an array in place.
+    - `fill()` : Fills all the elements in an array with a static value from a start index to an end index.
+    - `copyWithin()` : Copies part of an array to another location within the array, without modifying its length.
+43. Accessor Methods (Do not modify the array, but return a new array or value):
+    - `concat()` - Merges two or more arrays into one and returns the new array.
+    - `slice()` - Returns a shallow copy of a portion of an array into a new array.
+    - `join()` - Joins all elements of an array into a string.
+    - `indexOf()` - Returns the first index at which a given element can be found, or -1 if it is not present.
+    - `lastIndexOf()` - Returns the last index of a specified element, or -1 if not found.
+    - `includes()` - Determines whether an array contains a certain value and returns true or false.
+    - `toString()` - Returns a string representing the elements of the array.
+    - `toLocaleString()` - Returns a localized string representing the elements of the array.
+    - `entries()` - Returns an array iterator object that contains key/value pairs for each index in the array.
+    - `every()` - Tests whether all elements in the array pass a provided test function.
+    - `some()` - Tests whether at least one element in the array passes the test function.
+    - `find()` - Returns the first element in the array that satisfies the provided testing function.
+    - `findIndex()` - Returns the index of the first element that satisfies the testing function.
+    - `keys()` - Returns an array iterator object that contains the keys for each index in the array.
+    - `values()` - Returns an array iterator object that contains the values for each index in the array.
+    - `forEach()` - Executes a provided function once for each array element.
+    - `map()` - Creates a new array populated with the results of calling a provided function on every element in the array.
+    - `filter()` - Creates a new array with all elements that pass the test implemented by the provided function.
+    - `reduce()` - Executes a reducer function on each element of the array and returns a single output value.
+    - `reduceRight()` - Applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+44. Iteration Methods:
+    - `forEach()` - Executes a provided function once for each array element.
+    - `map()` - Creates a new array populated with the results of calling a provided function on every element.
+    - `filter()` - Creates a new array with all elements that pass the test implemented by the provided function.
+    - `reduce()` - Reduces the array to a single value using a reducer function.
+    - `reduceRight()` - Similar to reduce(), but starts from the last element and moves towards the first.
+    - `find()` - Returns the value of the first element that satisfies a test function.
+    - `findIndex()` - Returns the index of the first element that satisfies a test function.
+    - `some()` - Checks if at least one element in the array passes a test.
+    - `every()` - Checks if all elements in the array pass a test.
