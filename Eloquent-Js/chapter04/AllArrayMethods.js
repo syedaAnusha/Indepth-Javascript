@@ -177,7 +177,7 @@ const arrayWithFalsyValues = [
 //* frequently. If multiple strings have the same frequency, return the
 //* one that comes first lexicographically.
 
-let favFruits = ["hello!", "hello", "hello", "world!", "world", "hello!"];
+let favFruits = ["Apple", "apple", "Banana", "banana", "Apple", "banana"];
 function getHighestFrequency(obj) {
   let maxNum = Math.max(...Object.values(obj));
   for (const key in obj) {
@@ -186,13 +186,20 @@ function getHighestFrequency(obj) {
     }
   }
 }
+
 function getWordWithHighestFrequency(array) {
   let list = {};
+  let regex =
+    /@|#|\$|!|%|&|\^|\*|-|\+|_|=|{|}|\[|\]|\(|\)|~|`|\.|\?|\<|\>|,|\/|:|;|"|'|\\/;
   array.forEach((element) => {
     if (Object.keys(list).includes(element)) {
-      list[element]++;
+      if (regex.test(element)) {
+        list[element]--;
+      } else {
+        list[element]++;
+      }
     } else {
-      list[element] = 0;
+      list[element] = 1;
     }
   });
   return getHighestFrequency(Object.fromEntries(Object.entries(list).sort()));
