@@ -146,4 +146,61 @@ const moreMonths = ["Januar", "Februar", "Mar", "April"];
 // console.log(Array(7));
 
 //* at()
-console.log(moreMonths.at(3));
+// console.log(moreMonths.at(3));
+
+//* indexOf with bitwise NOT (~) operator
+
+//* if found, it returns minus(-) with index number,
+//* e.g. -1,-2,-3 and so on, and, returns 0 if not found.
+
+let furniture = ["chair", "sofa", "bed", "almira"];
+// console.log(~furniture.indexOf("sofa"));
+
+//* filter out falsy values from an array.
+const arrayWithFalsyValues = [
+  1,
+  3,
+  5,
+  6,
+  "hello",
+  "a",
+  undefined,
+  null,
+  "",
+  false,
+];
+// console.log(arrayWithFalsyValues.filter(Boolean));
+
+//* HARDEST
+
+//* 1- Given an array of strings, return the string that appears most
+//* frequently. If multiple strings have the same frequency, return the
+//* one that comes first lexicographically.
+
+let favFruits = ["hello!", "hello", "hello", "world!", "world", "hello!"];
+function getHighestFrequency(obj) {
+  let maxNum = Math.max(...Object.values(obj));
+  for (const key in obj) {
+    if (obj[key] === maxNum) {
+      return key;
+    }
+  }
+}
+function getWordWithHighestFrequency(array) {
+  let list = {};
+  array.forEach((element) => {
+    if (Object.keys(list).includes(element)) {
+      list[element]++;
+    } else {
+      list[element] = 0;
+    }
+  });
+  return getHighestFrequency(Object.fromEntries(Object.entries(list).sort()));
+}
+console.log(getWordWithHighestFrequency(favFruits));
+
+//* 2-
+//*
+//*
+//*
+//*
