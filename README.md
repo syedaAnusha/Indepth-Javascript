@@ -179,3 +179,23 @@
       - the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
 46. `with()` method as a safe way to update elements in an array without altering the original array.
 47. `of()` static method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
+
+<br>
+
+# Chapter05 : Higher Order Functions
+
+<br>
+
+1. Functions that operate on other functions, either by taking them as arguments or by returning them, are called **higher-order functions**.
+
+2. **Higher-order functions** allow us to abstract over actions, not just values. They come in several forms. For example,
+   - we can have functions that create new functions.
+   - we can have functions that change other functions
+   - We can even write functions that provide new types of control flow.
+   - There is a built-in array method, forEach, that provides something like a `for/of loop` as a higher-order function
+3. `filter function` rather than deleting elements from the
+   existing array, builds up a new array with only the elements that pass the test. This function is `pure`. It does not modify the array it is given.
+4. `reduce` (sometimes also called fold).
+5. JavaScript’s `charCodeAt` method gives you a **code unit**, not a full character code.
+6. The `codePointAt` method, added later, does give a **full Unicode character**.
+7. If you have a character (which will be a string of one or two code units), you can use codePointAt(0) to get its code. e.g "🌹🐉" or "🐴👟".
