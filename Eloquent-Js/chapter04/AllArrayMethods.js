@@ -205,9 +205,3 @@ function getWordWithHighestFrequency(array) {
   return getHighestFrequency(Object.fromEntries(Object.entries(list).sort()));
 }
 console.log(getWordWithHighestFrequency(favFruits));
-
-//* 2-
-//*
-//*
-//*
-//*
