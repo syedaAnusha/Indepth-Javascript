@@ -101,6 +101,23 @@ function mySome2(array, func) {
 //* that have a script associated with them. The characterScript and countBy functions
 //* defined earlier in the chapter are probably useful here.
 
+function characterScript(code) {
+  for (let script of SCRIPTS) {
+    if (
+      script.ranges.some(([from, to]) => {
+        return code >= from && code < to;
+      })
+    ) {
+      return script;
+    }
+  }
+  return null;
+}
+
+// console.log(characterScript(110));
+// console.log(countBy([1, 2, 3, 4, 5], (n) => n > 2));
+// console.log("SCRIPT", SCRIPTS);
+
 function countBy(items, groupName) {
   let counts = [];
   for (let item of items) {
@@ -115,17 +132,27 @@ function countBy(items, groupName) {
   return counts;
 }
 
-function characterScript(code) {
-  for (let script of SCRIPTS) {
-    if (
-      script.ranges.some(([from, to]) => {
-        return code >= from && code < to;
-      })
-    ) {
-      return script;
-    }
+function dominantWritingDirection(items) {
+  let counts = [];
+  for (const item of items) {
+    counts.push(item.count);
   }
-  return null;
+  let max = Math.max(...counts);
+  for (const item of items) {
+    if (item.count === max)
+      return `The Dominant writing in the SCRIPTS is ${item.name} : ${max}`;
+  }
 }
 
-console.log(characterScript(121));
+let counts = countBy(SCRIPTS, (n) => n.direction);
+function dominantWritingDirection(items) {
+  let counts = [];
+  for (const item of items) {
+    counts.push(item.count);
+  }
+  let max = Math.max(...counts);
+  items.map((item) => {
+    if (item.count === max) console.log(item.name);
+  });
+}
+// dominantWritingDirection(counts);
