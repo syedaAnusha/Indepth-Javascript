@@ -199,3 +199,27 @@
 5. JavaScript’s `charCodeAt` method gives you a **code unit**, not a full character code.
 6. The `codePointAt` method, added later, does give a **full Unicode character**.
 7. If you have a character (which will be a string of one or two code units), you can use codePointAt(0) to get its code. e.g "🌹🐉" or "🐴👟".
+
+<br>
+
+# Chapter06 : The Secret Life Of Objects
+
+<br>
+
+1. Properties that are part of the interface are called **public**.
+2. It is also common to put an `underscore (\_) character` at the start of property names to indicate that those properties are **private**.
+3. Separating interface from implementation is a great idea. It is usually called `encapsulation`.
+4. Methods are nothing more than properties that hold function values.
+
+```js
+   let rabbit = {};
+   rabbit.speak = function(line) {
+   console.log(The rabbit says '${line}');
+   };`
+   rabbit.speak("I'm alive.");
+   // → The rabbit says 'I'm alive.'
+```
+
+5. When a function is called as a `method` looked up as a property and immediately called, as in `object.method()`. the binding called `this` in its body automatically points at the object that it was called on.
+
+6. You can think of `this` as an extra parameter that is passed in a different way. If you want to pass it explicitly, you can use a function’s `call method`, which takes the `this` value as its `first argument` and treats further arguments as normal parameters.
