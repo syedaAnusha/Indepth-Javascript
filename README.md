@@ -223,3 +223,18 @@
 5. When a function is called as a `method` looked up as a property and immediately called, as in `object.method()`. the binding called `this` in its body automatically points at the object that it was called on.
 
 6. You can think of `this` as an extra parameter that is passed in a different way. If you want to pass it explicitly, you can use a function’s `call method`, which takes the `this` value as its `first argument` and treats further arguments as normal parameters.
+
+<br>
+
+# Chapter07 : The DOM (Document Object Model)
+
+<br>
+
+1. The `preventDefault()` method of the Event interface tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
+   - Form Submission: Preventing the default form submission behavior allows developers to handle form data using asynchronous techniques (e.g., AJAX) or to perform client-side validation before submitting the form.
+   - The `preventDefault()` method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur. For example, this can be useful when:
+     - Clicking on a **Submit** button, prevent it from submitting a form.
+     - Clicking on a **link**, prevent the link from following the URL.
+2. Difference between `removeChild()` and `remove()` is:
+   - `removeChild()`: holds the child value when removed, so we can use this child later.
+   - `remove()`: completely remove the child from the list, we cannot use it later --> give: undefined.
